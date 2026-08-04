@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900">
+    <title>Community Registration - HDS-Explorer</title>
+    <link rel='stylesheet' id='classic-theme-styles-css' href='./css/g7w-classic-themes.min.css' media='all'/>
+    <link rel='stylesheet' id='fluent-form-styles-css' href='./css/fluentform-public-css-fluent-forms-public.css' media='all'/>
+    <link rel='stylesheet' id='fluentform-public-default-css' href='./css/fluentform-public-css-fluentform-public-default.css' media='all'/>
+
+    <style>
+        :root {
+            --wp-admin-theme-color: #007cba;
+            --primary-green: #27a76a;
+            --dark-green: #066839;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            color: #313131;
+            background-color: #fff;
+        }
+        .ct-section {
+            padding: 80px 20px;
+        }
+        .ct-section-inner-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .ct-headline {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .ct-text-block {
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Form Styles matching Fluent Forms */
+        .fluentform_wrapper_1 {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .ff-el-group {
+            margin-bottom: 20px;
+        }
+        .ff-el-input--label label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .ff-el-form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        .ff-btn-submit {
+            background-color: var(--primary-green);
+            border: none;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .ff-btn-submit:hover {
+            background-color: var(--dark-green);
+        }
+
+        #registration-success {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            border: 1px solid var(--primary-green);
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+        }
+    </style>
+</head>
+<body class="oxygen-body">
+
+<header>
+    <div class="logo">
+        <a href="index.html"><img src="./images/2022-11-HDSS.png" alt="HDS-Explorer"></a>
+    </div>
+    <nav>
+        <a href="index.html" style="text-decoration: none; color: #313131; font-weight: 600;">Back to Home</a>
+    </nav>
+</header>
+
+<section class="ct-section">
+    <div class="ct-section-inner-wrap">
+        <div id="registration-form-container">
+            <h2 class="ct-headline">Join the HDS-Explorer Community</h2>
+            <p class="ct-text-block">Register your institution to help us track global adoption and gain access to our official WhatsApp community for support and updates.</p>
+
+            <div class='fluentform fluentform_wrapper_1'>
+                <form id="community_reg_form">
+                    <div class='ff-el-group'>
+                        <div class="ff-el-input--label"><label for='institution'>Institution Name *</label></div>
+                        <div class='ff-el-input--content'>
+                            <input type="text" name="institution" id="institution" class="ff-el-form-control" placeholder="University, NGO, Ministry, etc." required />
+                        </div>
+                    </div>
+
+                    <div class='ff-el-group'>
+                        <div class="ff-el-input--label"><label for='country'>Country *</label></div>
+                        <div class='ff-el-input--content'>
+                            <select name="country" id="country" class="ff-el-form-control" required>
+                                <option value="" disabled selected>Select Country of implementation</option>
+                                <option value="Afghanistan">Afghanistan</option>
+                                <option value="Albania">Albania</option>
+                                <option value="Algeria">Algeria</option>
+                                <option value="Andorra">Andorra</option>
+                                <option value="Angola">Angola</option>
+                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Armenia">Armenia</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Austria">Austria</option>
+                                <option value="Azerbaijan">Azerbaijan</option>
+                                <option value="Bahamas">Bahamas</option>
+                                <option value="Bahrain">Bahrain</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Barbados">Barbados</option>
+                                <option value="Belarus">Belarus</option>
+                                <option value="Belgium">Belgium</option>
+                                <option value="Belize">Belize</option>
+                                <option value="Benin">Benin</option>
+                                <option value="Bhutan">Bhutan</option>
+                                <option value="Bolivia">Bolivia</option>
+                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                <option value="Botswana">Botswana</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="Brunei">Brunei</option>
+                                <option value="Bulgaria">Bulgaria</option>
+                                <option value="Burkina Faso">Burkina Faso</option>
+                                <option value="Burundi">Burundi</option>
+                                <option value="Cabo Verde">Cabo Verde</option>
+                                <option value="Cambodia">Cambodia</option>
+                                <option value="Cameroon">Cameroon</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Central African Republic">Central African Republic</option>
+                                <option value="Chad">Chad</option>
+                                <option value="Chile">Chile</option>
+                                <option value="China">China</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Comoros">Comoros</option>
+                                <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
+                                <option value="Costa Rica">Costa Rica</option>
+                                <option value="Croatia">Croatia</option>
+                                <option value="Cuba">Cuba</option>
+                                <option value="Cyprus">Cyprus</option>
+                                <option value="Czechia (Czech Republic)">Czechia (Czech Republic)</option>
+                                <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
+                                <option value="Denmark">Denmark</option>
+                                <option value="Djibouti">Djibouti</option>
+                                <option value="Dominica">Dominica</option>
+                                <option value="Dominican Republic">Dominican Republic</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="El Salvador">El Salvador</option>
+                                <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                <option value="Eritrea">Eritrea</option>
+                                <option value="Estonia">Estonia</option>
+                                <option value="Eswatini">Eswatini</option>
+                                <option value="Ethiopia">Ethiopia</option>
+                                <option value="Fiji">Fiji</option>
+                                <option value="Finland">Finland</option>
+                                <option value="France">France</option>
+                                <option value="Gabon">Gabon</option>
+                                <option value="Gambia">Gambia</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Greece">Greece</option>
+                                <option value="Grenada">Grenada</option>
+                                <option value="Guatemala">Guatemala</option>
+                                <option value="Guinea">Guinea</option>
+                                <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                <option value="Guyana">Guyana</option>
+                                <option value="Haiti">Haiti</option>
+                                <option value="Holy See">Holy See</option>
+                                <option value="Honduras">Honduras</option>
+                                <option value="Hungary">Hungary</option>
+                                <option value="Iceland">Iceland</option>
+                                <option value="India">India</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Iran">Iran</option>
+                                <option value="Iraq">Iraq</option>
+                                <option value="Ireland">Ireland</option>
+                                <option value="Israel">Israel</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Jamaica">Jamaica</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Jordan">Jordan</option>
+                                <option value="Kazakhstan">Kazakhstan</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Kiribati">Kiribati</option>
+                                <option value="Kuwait">Kuwait</option>
+                                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                <option value="Laos">Laos</option>
+                                <option value="Latvia">Latvia</option>
+                                <option value="Lebanon">Lebanon</option>
+                                <option value="Lesotho">Lesotho</option>
+                                <option value="Liberia">Liberia</option>
+                                <option value="Libya">Libya</option>
+                                <option value="Liechtenstein">Liechtenstein</option>
+                                <option value="Lithuania">Lithuania</option>
+                                <option value="Luxembourg">Luxembourg</option>
+                                <option value="Madagascar">Madagascar</option>
+                                <option value="Malawi">Malawi</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Maldives">Maldives</option>
+                                <option value="Mali">Mali</option>
+                                <option value="Malta">Malta</option>
+                                <option value="Marshall Islands">Marshall Islands</option>
+                                <option value="Mauritania">Mauritania</option>
+                                <option value="Mauritius">Mauritius</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="Micronesia">Micronesia</option>
+                                <option value="Moldova">Moldova</option>
+                                <option value="Monaco">Monaco</option>
+                                <option value="Mongolia">Mongolia</option>
+                                <option value="Montenegro">Montenegro</option>
+                                <option value="Morocco">Morocco</option>
+                                <option value="Mozambique">Mozambique</option>
+                                <option value="Myanmar (formerly Burma)">Myanmar (formerly Burma)</option>
+                                <option value="Namibia">Namibia</option>
+                                <option value="Nauru">Nauru</option>
+                                <option value="Nepal">Nepal</option>
+                                <option value="Netherlands">Netherlands</option>
+                                <option value="New Zealand">New Zealand</option>
+                                <option value="Nicaragua">Nicaragua</option>
+                                <option value="Niger">Niger</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="North Korea">North Korea</option>
+                                <option value="North Macedonia">North Macedonia</option>
+                                <option value="Norway">Norway</option>
+                                <option value="Oman">Oman</option>
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="Palau">Palau</option>
+                                <option value="Palestine State">Palestine State</option>
+                                <option value="Panama">Panama</option>
+                                <option value="Papua New Guinea">Papua New Guinea</option>
+                                <option value="Paraguay">Paraguay</option>
+                                <option value="Peru">Peru</option>
+                                <option value="Philippines">Philippines</option>
+                                <option value="Poland">Poland</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Qatar">Qatar</option>
+                                <option value="Romania">Romania</option>
+                                <option value="Russia">Russia</option>
+                                <option value="Rwanda">Rwanda</option>
+                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                <option value="Saint Lucia">Saint Lucia</option>
+                                <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                                <option value="Samoa">Samoa</option>
+                                <option value="San Marino">San Marino</option>
+                                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                <option value="Senegal">Senegal</option>
+                                <option value="Serbia">Serbia</option>
+                                <option value="Seychelles">Seychelles</option>
+                                <option value="Sierra Leone">Sierra Leone</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="Slovakia">Slovakia</option>
+                                <option value="Slovenia">Slovenia</option>
+                                <option value="Solomon Islands">Solomon Islands</option>
+                                <option value="Somalia">Somalia</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="South Korea">South Korea</option>
+                                <option value="South Sudan">South Sudan</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Sri Lanka">Sri Lanka</option>
+                                <option value="Sudan">Sudan</option>
+                                <option value="Suriname">Suriname</option>
+                                <option value="Sweden">Sweden</option>
+                                <option value="Switzerland">Switzerland</option>
+                                <option value="Syria">Syria</option>
+                                <option value="Tajikistan">Tajikistan</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="Timor-Leste">Timor-Leste</option>
+                                <option value="Togo">Togo</option>
+                                <option value="Tonga">Tonga</option>
+                                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                                <option value="Tunisia">Tunisia</option>
+                                <option value="Turkey">Turkey</option>
+                                <option value="Turkmenistan">Turkmenistan</option>
+                                <option value="Tuvalu">Tuvalu</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Ukraine">Ukraine</option>
+                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="United States of America">United States of America</option>
+                                <option value="Uruguay">Uruguay</option>
+                                <option value="Uzbekistan">Uzbekistan</option>
+                                <option value="Vanuatu">Vanuatu</option>
+                                <option value="Venezuela">Venezuela</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="Yemen">Yemen</option>
+                                <option value="Zambia">Zambia</option>
+                                <option value="Zimbabwe">Zimbabwe</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 20px;">
+                        <div class='ff-el-group' style="flex: 1;">
+                            <div class="ff-el-input--label"><label for='contact'>Contact Person *</label></div>
+                            <div class='ff-el-input--content'>
+                                <input type="text" name="contact" id="contact" class="ff-el-form-control" placeholder="Full Name" required />
+                            </div>
+                        </div>
+                        <div class='ff-el-group' style="flex: 1;">
+                            <div class="ff-el-input--label"><label for='email'>Email *</label></div>
+                            <div class='ff-el-input--content'>
+                                <input type="email" name="email" id="email" class="ff-el-form-control" placeholder="email@example.com" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 20px;">
+                        <div class='ff-el-group' style="flex: 1;">
+                            <div class="ff-el-input--label"><label for='whatsapp'>WhatsApp Number</label></div>
+                            <div class='ff-el-input--content'>
+                                <input type="text" name="whatsapp_number" id="whatsapp" class="ff-el-form-control" placeholder="+XXX ..." />
+                            </div>
+                        </div>
+                        <div class='ff-el-group' style="flex: 1;">
+                            <div class="ff-el-input--label"><label for='users'>Estimated Number of Users</label></div>
+                            <div class='ff-el-input--content'>
+                                <input type="number" name="users" id="users" class="ff-el-form-control" placeholder="0" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='ff-el-group'>
+                        <div class="ff-el-input--label"><label for='instance_url'>Instance URL (Optional)</label></div>
+                        <div class='ff-el-input--content'>
+                            <input type="url" name="instance_url" id="instance_url" class="ff-el-form-control" placeholder="https://your-hds-server.org" />
+                        </div>
+                    </div>
+
+                    <div class='ff-el-group'>
+                        <button type="submit" id="submit-btn" class="ff-btn ff-btn-submit">Register and Join Community</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="registration-success">
+            <h2 class="ct-headline" style="color: var(--primary-green);">Registration Successful!</h2>
+            <p class="ct-text-block">Thank you for joining the HDS-Explorer community. You can now join our official WhatsApp group for real-time support and networking with other researchers.</p>
+            <a href="#" id="whatsapp-invite-link" class="whatsapp-btn" target="_blank">💬 Join WhatsApp Community</a>
+            <br><br>
+            <a href="index.html" style="color: #666;">Return to Homepage</a>
+        </div>
+    </div>
+</section>
+
+<script>
+document.getElementById('community_reg_form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.innerText = 'Registering...';
+    submitBtn.disabled = true;
+
+    const formData = {
+        institution: document.getElementById('institution').value,
+        country: document.getElementById('country').value,
+        contact: document.getElementById('contact').value,
+        email: document.getElementById('email').value,
+        whatsapp_number: document.getElementById('whatsapp').value,
+        users: document.getElementById('users').value,
+        instance_url: document.getElementById('instance_url').value,
+        token: 'HDS_EXPLORER_COMMUNITY_2026' // Shared secret from API
+    };
+
+    fetch('./api/register-instance.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            document.getElementById('registration-form-container').style.display = 'none';
+            document.getElementById('registration-success').style.display = 'block';
+            document.getElementById('whatsapp-invite-link').href = data.whatsapp_invite;
+        } else {
+            alert('Error: ' + data.message);
+            submitBtn.innerText = 'Register and Join Community';
+            submitBtn.disabled = false;
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('An error occurred during registration. Please try again later.');
+        submitBtn.innerText = 'Register and Join Community';
+        submitBtn.disabled = false;
+    });
+});
+</script>
+
+</body>
+</html>

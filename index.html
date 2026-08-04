@@ -765,6 +765,7 @@
                             <li id="menu-item-32" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-32"><a href="#case-study">Case Study</a></li>
                             <li id="menu-item-33" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33"><a href="#team">Team</a></li>
                             <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-34"><a href="#contact-us">Contact Us</a></li>
+                            <li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-35"><a href="register.html">Community</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -793,6 +794,8 @@
                                     href="#team">Team</a></li>
                             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-34"><a
                                     href="#contact-us">Contact Us</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a
+                                    href="register.html" style="color: #27a76a; font-weight: bold;">Community Register</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -1304,12 +1307,50 @@
                         </div>
                         <script src="https://smtpjs.com/v3/smtp.js"></script>
                         <script type="text/javascript">
-
                             function sendEmail() {
                                 var email = document.getElementById('ff_1_email').value;
                                 var subject = document.getElementById('ff_1_input_text').value;
                                 var message = document.getElementById('ff_1_message').value;
-                                alert("test email: "+email);
+
+                                var btn = document.querySelector('.fluentform_wrapper_1 .ff-btn-submit');
+                                var originalText = btn.innerText;
+                                btn.innerText = 'SENDING...';
+                                btn.disabled = true;
+
+                                // --- REPLACE THE KEY BELOW WITH YOUR WEB3FORMS ACCESS KEY ---
+                                var accessKey = '1e6888cf-a07a-4243-b013-24b2777cbf69';
+
+                                fetch('https://api.web3forms.com/submit', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Accept': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        access_key: accessKey,
+                                        email: email,
+                                        subject: subject,
+                                        message: message,
+                                        from_name: 'HDS-Explorer Website'
+                                    })
+                                })
+                                .then(async (response) => {
+                                    let json = await response.json();
+                                    if (response.status == 200) {
+                                        alert('Your message has been sent successfully!');
+                                        document.getElementById('fluentform_1').reset();
+                                    } else {
+                                        alert(json.message || 'Oops! There was a problem sending your message.');
+                                    }
+                                })
+                                .catch((error) => {
+                                    console.error('Error:', error);
+                                    alert('An error occurred while sending the message.');
+                                })
+                                .finally(() => {
+                                    btn.innerText = originalText;
+                                    btn.disabled = false;
+                                });
                             }
 
                             window.fluent_form_ff_form_instance_1_1 = {
@@ -1343,33 +1384,48 @@
 </div>
 <section id="section-15-22" class="ct-section">
     <div class="ct-section-inner-wrap">
-        <div id="new_columns-20-22" class="ct-new-columns">
-            <div id="div_block-21-22" class="ct-div-block">
-                <div id="div_block-36-22" class="ct-div-block">
-                    <div id="div_block-37-22" class="ct-div-block">
-                        <div id="div_block-40-22" class="ct-div-block"><p id="text_block-23-22" class="ct-text-block">
-                            Server Github repository&nbsp; </p><a id="link_text-41-22" class="ct-link-text" href="https://github.com/philimones-group/hds-explorer-server/" target="_blank">here.</a>
-                        </div>
-                        <div id="div_block-42-22" class="ct-div-block"><p id="text_block-43-22" class="ct-text-block">
-                            Mobile Github repository&nbsp; <br></p><a id="link_text-46-22" class="ct-link-text" href="https://github.com/philimones-group/hds-explorer-tablet" target="_blank">here</a>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+        <div id="new_columns-20-22" class="ct-new-columns" style="display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 10px; align-items: center; justify-content: center !important; margin-bottom: 0px;">
 
-            <div id="div_block-50-22" class="ct-div-block">
+            <div id="div_block-50-22" class="ct-div-block" style="display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 10px; align-items: center; justify-content: center !important; margin-bottom: 0px;">
                 <a id="link_text-52-22" class="ct-link-text"
-                    href="https://www.patreon.com/posts/hds-explorer-of-138290074?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=postshare_creator&utm_content=join_link"
-                    target="_blank"
-                    style="padding:10px 18px; background-color:#ff6f61; color:#fff; border-radius:6px; text-decoration:none; font-weight:bold; font-size:14px;">
+                   href="https://www.patreon.com/posts/hds-explorer-of-138290074?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=postshare_creator&utm_content=join_link"
+                   target="_blank"
+                   style="display: inline-block !important; padding:10px 18px; background-color:#ff6f61; color:#fff; border-radius:6px; text-decoration:none; font-weight:bold; font-size:14px; white-space: nowrap !important;">
                     ❤️ Donate / Support Us
+                </a>
+                <a id="community-whatsapp-link" class="ct-link-text"
+                   href="https://chat.whatsapp.com/H0l8Z3vYaL2Hd9BtiIMJLw"
+                   target="_blank"
+                   style="display: inline-block !important; padding:10px 18px; background-color:#25D366; color:#fff; border-radius:6px; text-decoration:none; font-weight:bold; font-size:14px; white-space: nowrap !important;">
+                    💬 Join Community
+                </a>
+                <a id="community-register-btn" class="ct-link-text"
+                   href="register.html"
+                   style="display: inline-block !important; padding:10px 18px; background-color:#27a76a; color:#fff; border-radius:6px; text-decoration:none; font-weight:bold; font-size:14px; white-space: nowrap !important;">
+                    📝 Register Institution
                 </a>
             </div>
 
-            <div id="div_block-22-22" class="ct-div-block">
-                <div id="code_block-27-22" class="ct-code-block">HDS-Explorer ©2025. All rights Reserved.</div>
+            <div id="div_block-21-22" class="ct-div-block" style="display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 10px; align-items: center; justify-content: center !important; margin-bottom: 20px;">
+
+                    <div id="div_block-37-22" class="ct-div-block">
+                        <div id="div_block-40-22" class="ct-div-block">
+                            <p id="text_block-23-22" class="ct-text-block" style="white-space: nowrap;">Server Github repository&nbsp; <a id="link_text-41-22" class="ct-link-text" href="https://github.com/philimones-group/hds-explorer-server/" target="_blank">here</a></p>
+                        </div>
+                        <div id="div_block-42-22" class="ct-div-block">
+                            <p id="text_block-43-22" class="ct-text-block" style="white-space: nowrap;">Mobile Github repository&nbsp; <a id="link_text-46-22" class="ct-link-text" href="https://github.com/philimones-group/hds-explorer-tablet" target="_blank">here</a></p>
+                        </div>
+                        <div id="div_block-62-22" class="ct-div-block">
+                            <p id="text_block-43-22" class="ct-text-block" style="white-space: nowrap;">Community Discussions&nbsp; <a id="link_text-46-22" class="ct-link-text" href="https://github.com/philimones-group/hds-explorer-server/discussions" target="_blank">here</a></p>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div id="div_block-22-22" class="ct-div-block" style="display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 10px; align-items: center; justify-content: center !important; margin-bottom: 20px;">
+                <div id="code_block-27-22" class="ct-code-block" style="text-align: center !important;" >
+                    HDS-Explorer ©2026. All rights Reserved.
+                </div>
             </div>
         </div>
     </div>
